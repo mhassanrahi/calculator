@@ -23,13 +23,17 @@ const App = () => {
   };
 
   const calculate = () => setCalculation(eval(calculation).toString());
-  const deleteLastValue = () => {
+  const clearEntry = () => {
     if (calculation !== "") {
       const value = calculation.slice(0, -1);
       setCalculation(value);
     }
   };
-  const digits = () => {
+  const clearAll = () => {
+    setCalculation("");
+    setResult("");
+  };
+  const renderDigits = () => {
     const digitButtons = [];
     for (let i = 1; i < 10; i++) {
       digitButtons.push(
@@ -52,26 +56,26 @@ const App = () => {
           {calculation || 0}
         </div>
 
-        <div className="operators">
-          <button className="" onClick={() => updateCalculation("+")}>
+        <div className="keypad">
+          <button className="operator" onClick={() => updateCalculation("+")}>
             +
           </button>
-          <button className="" onClick={() => updateCalculation("-")}>
+          <button className="operator" onClick={() => updateCalculation("-")}>
             -
           </button>
-          <button className="" onClick={() => updateCalculation("/")}>
+          <button className="operator" onClick={() => updateCalculation("/")}>
             /
           </button>
-          <button className="" onClick={() => updateCalculation("*")}>
+          <button className="operator" onClick={() => updateCalculation("*")}>
             *
           </button>
-          <button className="" onClick={deleteLastValue}>
-            DEL
+          <button className="operator" onClick={clearEntry}>
+            CE
           </button>
-        </div>
-
-        <div className="digits">
-          {digits()}
+          <button className="operator" onClick={clearAll}>
+            C
+          </button>
+          {renderDigits()}
           <button onClick={() => updateCalculation("0")}>0</button>
           <button onClick={() => updateCalculation(".")}>.</button>
           <button onClick={calculate}>=</button>
