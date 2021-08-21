@@ -24,15 +24,17 @@ const App = () => {
 
   const calculate = () => setCalculation(eval(calculation).toString());
   const clearEntry = () => {
-    if (calculation !== "") {
+    if (calculation) {
       const value = calculation.slice(0, -1);
       setCalculation(value);
     }
   };
+
   const clearAll = () => {
     setCalculation("");
     setResult("");
   };
+
   const renderDigits = () => {
     const digitButtons = [];
     for (let i = 1; i < 10; i++) {
