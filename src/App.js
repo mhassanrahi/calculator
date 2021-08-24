@@ -24,6 +24,7 @@ const App = () => {
   };
 
   const calculate = () => setCalculation(eval(calculation).toString());
+
   const clearEntry = () => {
     if (calculation) {
       const value = calculation.slice(0, -1);
