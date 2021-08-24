@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import "./App.css";
+import { Button } from "./components/Button"
 
 const App = () => {
   const [calculation, setCalculation] = useState("");
@@ -39,12 +40,7 @@ const App = () => {
     const digitButtons = [];
     for (let i = 1; i < 10; i++) {
       digitButtons.push(
-        <button
-          onClick={() => updateCalculation(i.toString())}
-          key={i.toString()}
-        >
-          {i}
-        </button>
+        <Button onClick={() => updateCalculation(i.toString())} key={i.toString()} value={i} />
       );
     }
 
@@ -59,27 +55,20 @@ const App = () => {
         </div>
 
         <div className="keypad">
-          <button className="operator" onClick={() => updateCalculation("+")}>
-            +
-          </button>
-          <button className="operator" onClick={() => updateCalculation("-")}>
-            -
-          </button>
-          <button className="operator" onClick={() => updateCalculation("/")}>
-            /
-          </button>
-          <button className="operator" onClick={() => updateCalculation("*")}>
-            *
-          </button>
-          <button className="operator" onClick={clearEntry}>
-            CE
-          </button>
-          <button className="operator" onClick={clearAll}>
-            C
-          </button>
+
+          <Button className="operator" onClick={() => updateCalculation("+")} value="+" />
+          <Button className="operator" onClick={() => updateCalculation("-")} value="-" />
+          <Button className="operator" onClick={() => updateCalculation("/")} value="/" />
+          <Button className="operator" onClick={() => updateCalculation("*")} value="*" />
+
+          <Button className="operator" onClick={clearEntry} value="CE" />
+          <Button className="operator" onClick={clearAll} value="C" />
+
+
           {renderDigits()}
-          <button onClick={() => updateCalculation("0")}>0</button>
-          <button onClick={() => updateCalculation(".")}>.</button>
+          <Button onClick={() => updateCalculation("0")} value="0" />
+          <Button onClick={() => updateCalculation(".")} value="." />
+
           <button onClick={calculate}>=</button>
         </div>
       </div>
