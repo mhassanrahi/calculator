@@ -49,6 +49,7 @@ const App = () => {
   };
   return (
     <div className="App">
+      <h3 className="title">Simple Calculator</h3>
       <div className="calculator">
         <div className="display">
           <span>{result ? `(${result})` : ""}</span>
@@ -56,7 +57,6 @@ const App = () => {
         </div>
 
         <div className="keypad">
-
           {/* operators */}
           <Button className="operator" onClick={() => updateCalculation("+")} value="+" />
           <Button className="operator" onClick={() => updateCalculation("-")} value="-" />
