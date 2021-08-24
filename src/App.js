@@ -56,20 +56,19 @@ const App = () => {
 
         <div className="keypad">
 
+          {/* operators */}
           <Button className="operator" onClick={() => updateCalculation("+")} value="+" />
           <Button className="operator" onClick={() => updateCalculation("-")} value="-" />
           <Button className="operator" onClick={() => updateCalculation("/")} value="/" />
           <Button className="operator" onClick={() => updateCalculation("*")} value="*" />
-
           <Button className="operator" onClick={clearEntry} value="CE" />
           <Button className="operator" onClick={clearAll} value="C" />
 
-
+          {/* digits */}
           {renderDigits()}
           <Button onClick={() => updateCalculation("0")} value="0" />
           <Button onClick={() => updateCalculation(".")} value="." />
-
-          <button onClick={calculate}>=</button>
+          <Button onClick={calculate} value="=" />
         </div>
       </div>
     </div>
